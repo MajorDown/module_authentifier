@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // ou "next/link"
 import adminBtnOff from "../images/adminIcons/adminBtnOff.png";
 import adminBtnOn from "../images/adminIcons/adminBtnOn.png";
 import connectBtn from "../images/adminIcons/connectBtn.png";
@@ -30,7 +30,7 @@ const identifer = () => {
   const handleLogin = async () => {
     const userId = inputId;
     const password = inputMdp;
-    const res = await fetch("http://API_URL/login", {
+    const res = await fetch("http://API_URL/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
