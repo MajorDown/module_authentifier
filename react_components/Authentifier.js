@@ -1,10 +1,7 @@
+"use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom"; // ou "next/link"
-import adminBtnOff from "../images/adminIcons/adminBtnOff.png";
-import adminBtnOn from "../images/adminIcons/adminBtnOn.png";
-import connectBtn from "../images/adminIcons/connectBtn.png";
-import disconnectBtn from "../images/adminIcons/disconnectBtn.png";
-import dashboardBtn from "../images/adminIcons/dashboardBtn.png";
+import { Link } from "next/link";
+import { Image } from "next/image";
 
 const identifer = () => {
   const identifer = useRef();
@@ -59,10 +56,14 @@ const identifer = () => {
   return (
     <div id="identifer" ref={identifer}>
       <button onClick={() => setisOpen(!isOpen)}>
-        <img
-          id="adminBtn"
-          src={isConnected ? adminBtnOn : adminBtnOff}
-          alt="admin icon"
+        <Image
+          id="identifierBtn"
+          src={
+            isConnected
+              ? "../images/identifier_icons/identifierNotAuth.png"
+              : "../images/identifier_icons/identifierAuth.png"
+          }
+          alt="identifier icon"
           width={30}
           height={30}
         />
@@ -73,9 +74,9 @@ const identifer = () => {
             <div id="adminForm">
               <button>
                 <Link to="/dashboard">
-                  <img
-                    id="connectBtn"
-                    src={dashboardBtn}
+                  <Image
+                    id="identifierDisconnect"
+                    src="../images/identifer_icons/identiferDashboard.png"
                     alt="Connection"
                     width={30}
                     height={30}
@@ -84,9 +85,9 @@ const identifer = () => {
               </button>
               <p>mode Admin : {userId}</p>
               <button onClick={handleLogout}>
-                <img
-                  id="disconnectBtn"
-                  src={disconnectBtn}
+                <Image
+                  id="identifierDisconnect"
+                  src="../images/identifer_icons/identiferDisconnect.png"
                   alt="Déconnection"
                   width={30}
                   height={30}
@@ -112,9 +113,9 @@ const identifer = () => {
                 onChange={(e) => setInputMdp(e.target.value)}
               />
               <button onClick={handleLogin}>
-                <img
-                  id="connectBtn"
-                  src={connectBtn}
+                <Image
+                  id="identifierConnect"
+                  src="../images/identifier_icons/identifierConnect.png"
                   alt="Connection"
                   width={30}
                   height={30}
